@@ -298,17 +298,10 @@
     "fields": [
       {
         "component": "aem-content",
-        "name": "video",
-        "label": "Video asset",
-        "description": "Pick a DAM video asset from the content tree (e.g. /content/dam/.../movie.mp4). The searchable asset selector optimizes as an image and breaks video, so this uses the content-tree picker. For streaming or external sources, use the Video URL field below instead."
-      },
-      {
-        "component": "text",
         "valueType": "string",
-        "name": "videoUrl",
-        "label": "Video URL (optional)",
-        "value": "",
-        "description": "Overrides the asset. Use for streaming: an .m3u8 manifest, a Dynamic Media OpenAPI / Scene7 URL, or a YouTube link."
+        "name": "video",
+        "label": "Video",
+        "description": "DAM video asset, or a URL: MP4/WebM (progressive), .m3u8 or Dynamic Media OpenAPI / Scene7 (streaming), or YouTube."
       },
       {
         "component": "richtext",
@@ -339,20 +332,18 @@
     "fields": [
       {
         "component": "aem-content",
+        "valueType": "string",
         "name": "fragment",
         "label": "Content Fragment",
-        "description": "Pick the Content Fragment to render from the content tree (e.g. /content/dam/hol/cf/...). The searchable asset selector does not handle Content Fragments, so this uses the content-tree picker."
+        "description": "The Content Fragment to render, e.g. /content/dam/hol/cf/kul-to-tokyo"
       },
       {
-        "component": "select",
+        "component": "text",
         "valueType": "string",
         "name": "template",
         "label": "Template",
-        "value": "destination_campaign",
-        "description": "Rendering template.",
-        "options": [
-          {"name": "Destination Campaign", "value": "destination_campaign"}
-        ]
+        "value": "",
+        "description": "Optional template name. Defaults to the fragment's model (e.g. destination_campaign)."
       }
     ]
   }
