@@ -203,6 +203,36 @@
               }
             }
           }
+        },
+        {
+          "title": "Video Teaser",
+          "id": "video-teaser",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Video Teaser",
+                  "model": "video-teaser"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Visual Content Fragment",
+          "id": "visual-content-fragment",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Visual Content Fragment",
+                  "model": "visual-content-fragment"
+                }
+              }
+            }
+          }
         }
       ]
     }

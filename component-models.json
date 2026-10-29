@@ -292,5 +292,59 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "video-teaser",
+    "fields": [
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "video",
+        "label": "Video",
+        "description": "DAM video asset, or a URL: MP4/WebM (progressive), .m3u8 or Dynamic Media OpenAPI / Scene7 (streaming), or YouTube."
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Teaser Text",
+        "description": "Heading + description + an optional CTA link, authored as rich text.",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "valueType": "string",
+        "options": [
+          {"name": "Default", "value": ""},
+          {"name": "Full width", "value": "full-width"},
+          {"name": "Short", "value": "short"},
+          {"name": "Tall", "value": "tall"},
+          {"name": "Contain video", "value": "contain"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "visual-content-fragment",
+    "fields": [
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "fragment",
+        "label": "Content Fragment",
+        "description": "The Content Fragment to render, e.g. /content/dam/hol/cf/kul-to-tokyo"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "template",
+        "label": "Template",
+        "value": "",
+        "description": "Optional template name. Defaults to the fragment's model (e.g. destination_campaign)."
+      }
+    ]
   }
 ]

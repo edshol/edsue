@@ -1,0 +1,110 @@
+.visual-content-fragment.block {
+  margin: 24px 0;
+}
+
+.visual-content-fragment .vcf-campaign {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgb(0 0 0 / 12%);
+}
+
+.visual-content-fragment .vcf-media {
+  position: relative;
+  min-height: 320px;
+}
+
+.visual-content-fragment .vcf-media img,
+.visual-content-fragment .vcf-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visual-content-fragment .vcf-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 40px;
+}
+
+.visual-content-fragment .vcf-label {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(200 16 46); /* MH red */
+}
+
+.visual-content-fragment .vcf-route {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.visual-content-fragment .vcf-arrow { color: rgb(200 16 46); }
+
+.visual-content-fragment .vcf-headline {
+  margin: 0.2em 0;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.15;
+  color: #111;
+}
+
+.visual-content-fragment .vcf-desc {
+  color: #444;
+  line-height: 1.55;
+}
+
+.visual-content-fragment .vcf-desc p { margin: 0.4em 0; }
+
+.visual-content-fragment .vcf-note {
+  margin: 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #777;
+}
+
+.visual-content-fragment .vcf-cta { margin: 0.8em 0 0; }
+
+.visual-content-fragment .vcf-cta a,
+.visual-content-fragment .vcf-cta a.button {
+  display: inline-block;
+  padding: 0.7em 1.6em;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  background: rgb(200 16 46);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.visual-content-fragment .vcf-cta a:hover {
+  transform: translateY(-1px);
+  background: rgb(168 10 36);
+}
+
+.visual-content-fragment .vcf-error {
+  padding: 1em;
+  border: 1px dashed #c8102e;
+  border-radius: 8px;
+  color: #c8102e;
+  text-align: center;
+}
+
+@media (width <= 700px) {
+  .visual-content-fragment .vcf-campaign { grid-template-columns: 1fr; }
+  .visual-content-fragment .vcf-media { min-height: 220px; }
+  .visual-content-fragment .vcf-body { padding: 28px; }
+}
