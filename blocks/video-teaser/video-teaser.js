@@ -119,22 +119,37 @@ async function isVideoUrl(src) {
   }
 }
 
-/** Pull the first usable video URL out of the block and remove its element. */
+/**
+ * Pull the video source out of the block and remove its element.
+ * The authored "video" field is a reference (renders as <img>/<picture>/<a> or
+ * text holding the asset path); the optional "videoUrl" text field overrides it
+ * for streaming/external URLs. A plain-text http(s) URL (the override) wins over
+ * an asset reference, so we check text candidates first.
+ */
 function extractVideoUrl(block) {
-  const a = [...block.querySelectorAll('a[href]')]
-    .find((el) => classifySource(el.getAttribute('href')));
-  if (a) {
-    const url = a.getAttribute('href');
-    const p = a.closest('p') || a.closest('div');
-    (p && p.textContent.trim() === a.textContent.trim() ? p : a).remove();
-    return url;
-  }
-  const el = [...block.querySelectorAll('p, div')].find((node) => {
+  const removeHost = (el) => {
+    const host = el.closest('p, picture') || el;
+    host.remove();
+  };
+
+  // 1) An explicit URL/path typed as text (the videoUrl override).
+  const textEl = [...block.querySelectorAll('p, div')].find((node) => {
     if (node.children.length) return false;
     const t = node.textContent.trim();
-    return /^https?:\/\/\S+$/.test(t) && classifySource(t);
+    return t && classifySource(t);
   });
-  if (el) { const url = el.textContent.trim(); el.remove(); return url; }
+  if (textEl) { const url = textEl.textContent.trim(); textEl.remove(); return url; }
+
+  // 2) A link to a video source.
+  const a = [...block.querySelectorAll('a[href]')]
+    .find((el) => classifySource(el.getAttribute('href')));
+  if (a) { const url = a.getAttribute('href'); removeHost(a); return url; }
+
+  // 3) A reference asset rendered as <source>/<img> whose src is a video.
+  const media = [...block.querySelectorAll('source[src], img[src]')]
+    .find((el) => classifySource(el.getAttribute('src')));
+  if (media) { const url = media.getAttribute('src'); removeHost(media); return url; }
+
   return null;
 }
 

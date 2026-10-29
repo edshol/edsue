@@ -213,7 +213,10 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Video Teaser",
-                  "model": "video-teaser"
+                  "model": "video-teaser",
+                  "videoUrl": "",
+                  "text": "<p>Discover</p><h2>Your next adventure starts here</h2><p>Full-bleed background video with an overlaid teaser. Pick a video asset, or paste a streaming URL.</p><p><a href=\"#\">Explore destination</a></p>",
+                  "classes": ""
                 }
               }
             }
@@ -228,7 +231,9 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Visual Content Fragment",
-                  "model": "visual-content-fragment"
+                  "model": "visual-content-fragment",
+                  "fragment": "/content/dam/hol/cf/kul-to-tokyo",
+                  "template": "destination_campaign"
                 }
               }
             }
