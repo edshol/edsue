@@ -297,12 +297,10 @@
     "id": "video-teaser",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
+        "component": "aem-content",
         "name": "video",
         "label": "Video asset",
-        "multi": false,
-        "description": "Pick a DAM video asset (searchable). For streaming or external sources, use the Video URL field below instead."
+        "description": "Pick a DAM video asset from the content tree (e.g. /content/dam/.../movie.mp4). The searchable asset selector optimizes as an image and breaks video, so this uses the content-tree picker. For streaming or external sources, use the Video URL field below instead."
       },
       {
         "component": "text",
