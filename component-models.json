@@ -340,12 +340,10 @@
     "id": "visual-content-fragment",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
+        "component": "aem-content",
         "name": "fragment",
         "label": "Content Fragment",
-        "multi": false,
-        "description": "Pick the Content Fragment to render (searchable asset selector)."
+        "description": "Pick the Content Fragment to render from the content tree (e.g. /content/dam/hol/cf/...). The searchable asset selector does not handle Content Fragments, so this uses the content-tree picker."
       },
       {
         "component": "select",
