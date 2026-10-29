@@ -93,10 +93,13 @@ function render(template, values) {
   return out;
 }
 
-/* Find the Content Fragment path authored in the block (a link or text). */
+/* Find the Content Fragment path authored in the block. The reference field may
+   render as a link, an <img>/<source> (asset path as src), or plain text. */
 function fragmentPath(block) {
-  const a = block.querySelector('a[href^="/content/dam"], a[href*="/content/dam/"]');
+  const a = block.querySelector('a[href*="/content/dam/"]');
   if (a) return a.getAttribute('href');
+  const media = block.querySelector('img[src*="/content/dam/"], source[src*="/content/dam/"]');
+  if (media) return media.getAttribute('src');
   const text = block.textContent.match(/\/content\/dam\/\S+/);
   return text ? text[0].trim() : null;
 }
